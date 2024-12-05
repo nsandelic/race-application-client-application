@@ -3,17 +3,29 @@ import { BrowserModule, provideClientHydration, withEventReplay } from '@angular
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { AdminRaceManagementComponent } from './components/admin/admin-race-management/admin-race-management.component';
+import { ApplicantApplicationsComponent } from './components/applicant/applicant-applications/applicant-applications.component';
+import { ApplyRaceComponent } from './components/applicant/apply-race/apply-race.component';
+import { RacesComponent } from './components/races/races.component';
+import { FormsModule } from '@angular/forms';
+import { provideHttpClient, withFetch } from '@angular/common/http';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    RacesComponent,
+    AdminRaceManagementComponent,
+    ApplicantApplicationsComponent,
+    ApplyRaceComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
-    provideClientHydration(withEventReplay())
+    provideClientHydration(withEventReplay()),
+    provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
 })

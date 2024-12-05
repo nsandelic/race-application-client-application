@@ -1,0 +1,8 @@
+<h2>Available Races</h2>
+    <ul>
+      <li *ngFor="let race of races">
+        {{ race.name }} - {{ race.distance }}
+        <a routerLink="/apply/{{ race.id }}"><button *ngIf="authService.getUserRole() === 'Applicant'">Apply</button></a>
+        <a routerLink="/apply/{{ race.id }}"><button>Apply</button></a>
+      </li>
+    </ul>

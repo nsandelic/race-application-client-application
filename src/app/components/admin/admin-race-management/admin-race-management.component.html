@@ -1,0 +1,35 @@
+<h2>Manage Races</h2>
+    
+    <!-- Add Race Form -->
+    <form (ngSubmit)="addRace()">
+      <input type="text" [(ngModel)]="newRace.name" name="name" placeholder="Race Name" required />
+      <select [(ngModel)]="newRace.distance" name="distance" required>
+        <option value="FIVE_KM">5km</option>
+        <option value="TEN_KM">10km</option>
+        <option value="HALF_MARATHON">Half Marathon</option>
+        <option value="MARATHON">Marathon</option>
+      </select>
+      <button type="submit">Add Race</button>
+    </form>
+
+    <!-- Update Race Form -->
+    <form *ngIf="selectedRace" (ngSubmit)="updateRace()">
+      <h3>Update Race: {{ selectedRace.name }}</h3>
+      <input type="text" [(ngModel)]="selectedRace.name" name="updateName" placeholder="Race Name" required />
+      <select [(ngModel)]="selectedRace.distance" name="updateDistance" required>
+        <option value="FIVE_KM">5k</option>
+        <option value="TEN_KM">10k</option>
+        <option value="HALF_MARATHON">Half Marathon</option>
+        <option value="MARATHON">Marathon</option>
+      </select>
+      <button type="submit">Update Race</button>
+    </form>
+
+    <!-- List of Races -->
+    <ul>
+      <li *ngFor="let race of races">
+        {{ race.name }} - {{ race.distance }}
+        <button (click)="selectRaceForUpdate(race)">Update</button>
+        <button (click)="deleteRace(race.id)">Delete</button>
+      </li>
+    </ul>
