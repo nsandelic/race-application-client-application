@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { AuthService } from './auth/service/auth.service';
 import { WebSocketService } from './services/websocket/websocket.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -9,7 +10,7 @@ import { WebSocketService } from './services/websocket/websocket.service';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  constructor(public authService: AuthService, private websocketService: WebSocketService) {}
+  constructor(public authService: AuthService, private websocketService: WebSocketService, private router: Router) {}
 
   ngOnInit(): void {
     this.websocketService.connectCommand();
@@ -20,5 +21,6 @@ export class AppComponent {
     this.websocketService.disconnectQuery();
     this.websocketService.disconnectCommand();
     this.authService.logout();
+    this.router.navigate(['/login']);
   }
 }

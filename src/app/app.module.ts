@@ -8,7 +8,10 @@ import { ApplicantApplicationsComponent } from './components/applicant/applicant
 import { ApplyRaceComponent } from './components/applicant/apply-race/apply-race.component';
 import { RacesComponent } from './components/races/races.component';
 import { FormsModule } from '@angular/forms';
-import { provideHttpClient, withFetch } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withFetch, withInterceptors } from '@angular/common/http';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthGuard } from './auth/guard/auth.guard';
+import { jwtInterceptor } from './auth/interceptor/jwt.interceptor';
 
 @NgModule({
   declarations: [
@@ -17,6 +20,7 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
     AdminRaceManagementComponent,
     ApplicantApplicationsComponent,
     ApplyRaceComponent,
+    LoginComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +28,8 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
     FormsModule
   ],
   providers: [
-    provideHttpClient(withFetch())
+     provideHttpClient(withFetch(), withInterceptors([jwtInterceptor])),
+    AuthGuard,
   ],
   bootstrap: [AppComponent]
 })

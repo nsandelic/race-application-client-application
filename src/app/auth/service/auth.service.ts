@@ -1,17 +1,18 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { LoginCred } from '../../models/login-cred';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:8080/auth'; // Adjust based on API endpoint
+  private loginUrl = 'http://localhost:8081/auth/login';
 
   constructor(private http: HttpClient) {}
 
-  login(credentials: { email: string; password: string }): Observable<{ token: string }> {
-    return this.http.post<{ token: string }>(`${this.baseUrl}/login`, credentials);
+  login(loginCred : LoginCred): Observable<LoginCred> {
+    return this.http.post<LoginCred>(this.loginUrl, loginCred);
   }
 
   saveToken(token: string): void {
@@ -50,6 +51,7 @@ export class AuthService {
   logout(): void {
     if (typeof localStorage !== 'undefined')
       localStorage.removeItem('token');
+      localStorage.removeItem('role');
   }
 
   isLoggedIn(): boolean {

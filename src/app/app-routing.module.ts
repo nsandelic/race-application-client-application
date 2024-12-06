@@ -4,28 +4,31 @@ import { AdminRaceManagementComponent } from './components/admin/admin-race-mana
 import { ApplicantApplicationsComponent } from './components/applicant/applicant-applications/applicant-applications.component';
 import { ApplyRaceComponent } from './components/applicant/apply-race/apply-race.component';
 import { RacesComponent } from './components/races/races.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthGuard } from './auth/guard/auth.guard';
 
 const routes: Routes = [
   { path: '', redirectTo: 'races', pathMatch: 'full' },
- // { path: 'login', component: LoginComponent },
+  { path: 'login', component: LoginComponent },
   {
     path: 'races',
     component: RacesComponent,
+    canActivate: [AuthGuard],
   },
   {
     path: 'apply/:raceId',
     component: ApplyRaceComponent,
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'applications',
     component: ApplicantApplicationsComponent,
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   {
     path: 'admin/race-management',
     component: AdminRaceManagementComponent,
-    //canActivate: [AuthGuard],
+    canActivate: [AuthGuard],
   },
   { path: '**', redirectTo: 'races' },
 ];

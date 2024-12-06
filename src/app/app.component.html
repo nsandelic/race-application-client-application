@@ -1,34 +1,13 @@
 <div class="wrapper">
-  <!--
-    <nav>
-      <a routerLink="/races">Races</a>
-      <a *ngIf="authService.getUserRole() === 'Applicant'" routerLink="/applications">My Applications</a>
-      <a *ngIf="authService.getUserRole() === 'Administrator'" routerLink="/admin/races">Manage Races</a>
-      <a *ngIf="authService.getUserRole() === 'Administrator'" routerLink="/admin/applications">Applications</a>
-      <a *ngIf="!authService.isLoggedIn()" routerLink="/login">Login</a>
-      <a *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</a>
-    </nav>
-  -->
   <nav>
-    <button routerLink="/races">Races</button>
-    <button routerLink="/applications">My Applications</button>
-    <button routerLink="admin/race-management">Manage Races</button>
-    <button routerLink="/login">Login</button>
-    <button (click)="logout()">Logout</button>
+    <button *ngIf="authService.isLoggedIn()" routerLink="/races">Races</button>
+    <button *ngIf="authService.getUserRole() === 'Applicant'" routerLink="/applications">My Applications</button>
+    <button *ngIf="authService.getUserRole() === 'Administrator'" routerLink="admin/race-management">Manage Races</button>
+    <button *ngIf="!authService.isLoggedIn()" routerLink="/login">Login</button>
+    <button *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</button>
   </nav>
   
     <router-outlet></router-outlet>
-  
-    <div style="flex-grow:1"></div>
-    <div class="footer" *ngIf="authService.isLoggedIn()">
-  
-      <div id="footerText">
-        <span style="text-align: left;margin-left: 20px;">v1.0.0</span>
-        <span style="text-align: center;">© 2024 Race application  </span>
-        <span style="text-align: right;margin-right: 20px;">{{authService.getUserRole()}}</span>
-      </div>
-  
-    </div>
   </div>
   
   
