@@ -1,0 +1,70 @@
+
+body {
+     font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 20px;
+  }
+  
+  h2 {
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .race-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .race-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #ffffff;
+    padding: 15px;
+    margin: 5px 0;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .race-item span {
+    font-size: 18px;
+    color: #333;
+    flex-grow: 1;
+  }
+  
+  .race-item a {
+    text-decoration: none;
+  }
+  
+  .race-item .btn-apply {
+    padding: 8px 15px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    background-color: #4CAF50;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  
+  .race-item .btn-apply:hover {
+    background-color: #45a049;
+  }
+  
+  .race-item button:focus {
+    outline: none;
+  }
+  
+  @media (max-width: 768px) {
+    .race-item {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .race-item .btn-apply {
+      margin-top: 10px;
+    }
+  }
+  

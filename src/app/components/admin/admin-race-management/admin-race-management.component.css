@@ -1,0 +1,133 @@
+
+body {
+   font-family: Arial, sans-serif;
+  background-color: #f9f9f9;
+  margin: 0;
+  padding: 20px;
+}
+
+h2 {
+  color: #333;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.race-form {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  width: 50%;
+  margin: 20px auto;
+}
+
+.race-form h3 {
+  color: #333;
+  margin-bottom: 20px;
+}
+
+.form-group {
+  margin-bottom: 15px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 10px;
+  font-size: 16px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  border-color: #4CAF50;
+  outline: none;
+}
+
+.btn-submit {
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+  background-color: #4CAF50;
+  color: white;
+  width: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #45a049;
+}
+
+.btn-submit:focus {
+  outline: none;
+}
+
+
+.race-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 40px;
+}
+
+.race-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #ffffff;
+  padding: 10px;
+  margin: 5px 0;
+  border-radius: 5px;
+  box-shadow: 0 1px 5px rgba(0, 0, 0, 0.1);
+}
+
+.race-item span {
+  font-size: 18px;
+  color: #333;
+  flex-grow: 1;
+}
+
+.race-item button {
+  padding: 8px 15px;
+  margin-left: 10px;
+}
+
+.race-item .btn-update {
+  background-color: #2196F3;
+  color: white;
+}
+
+.race-item .btn-update:hover {
+  background-color: #1976D2;
+}
+
+.race-item .btn-delete {
+  background-color: #f44336;
+  color: white;
+}
+
+.race-item .btn-delete:hover {
+  background-color: #e53935;
+}
+
+.race-item button:focus {
+  outline: none;
+}
+
+@media (max-width: 768px) {
+  .race-form {
+    width: 90%;
+  }
+
+  .race-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .race-item button {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+}

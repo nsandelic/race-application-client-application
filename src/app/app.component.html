@@ -1,13 +1,14 @@
 <div class="wrapper">
-  <nav>
-    <button *ngIf="authService.isLoggedIn()" routerLink="/races">Races</button>
-    <button *ngIf="authService.getUserRole() === 'Applicant'" routerLink="/applications">My Applications</button>
-    <button *ngIf="authService.getUserRole() === 'Administrator'" routerLink="admin/race-management">Manage Races</button>
-    <button *ngIf="!authService.isLoggedIn()" routerLink="/login">Login</button>
-    <button *ngIf="authService.isLoggedIn()" (click)="logout()">Logout</button>
+  <nav class="navbar">
+    <div class="left-nav">
+      <button *ngIf="authService.isLoggedIn()" routerLink="/races" class="nav-btn">Races</button>
+      <button *ngIf="authService.getUserRole() === 'Applicant'" routerLink="/applications" class="nav-btn">My Applications</button>
+      <button *ngIf="authService.getUserRole() === 'Administrator'" routerLink="admin/race-management" class="nav-btn">Manage Races</button>
+    </div>
+    <div class="right-nav">
+      <button *ngIf="!authService.isLoggedIn()" routerLink="/login" class="nav-btn logout-login-btn">Login</button>
+      <button *ngIf="authService.isLoggedIn()" (click)="logout()" class="nav-btn logout-login-btn">Logout</button>
+    </div>
   </nav>
-  
-    <router-outlet></router-outlet>
-  </div>
-  
-  
+  <router-outlet></router-outlet>
+</div>

@@ -1,7 +1,13 @@
 <h2>Apply to Race</h2>
-    <form (ngSubmit)="apply()">
-      <input type="text" [(ngModel)]="application.firstName" name="firstName" placeholder="First Name" required />
-      <input type="text" [(ngModel)]="application.lastName" name="lastName" placeholder="Last Name" required />
-      <input type="text" [(ngModel)]="application.club" name="club" placeholder="Club (Optional)" />
-      <button type="submit">Submit</button>
-    </form>
+<form (ngSubmit)="apply()" class="apply-form">
+  <div class="form-group">
+    <input type="text" [(ngModel)]="application.firstName" name="firstName" placeholder="First Name" required />
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="application.lastName" name="lastName" placeholder="Last Name" required />
+  </div>
+  <div class="form-group">
+    <input type="text" [(ngModel)]="application.club" name="club" placeholder="Club (Optional)" />
+  </div>
+  <button type="submit" class="btn-submit">Submit</button>
+</form>
