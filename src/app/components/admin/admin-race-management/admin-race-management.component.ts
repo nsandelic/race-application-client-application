@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { RaceService } from '../../../services/race/race.service';
 import { Race } from '../../../models/race';
+import { WebSocketService } from '../../../services/websocket/websocket.service';
 
 @Component({
   selector: 'app-admin-race-management',
@@ -12,8 +13,9 @@ export class AdminRaceManagementComponent implements OnInit {
   races: Race[] = [];
   newRace: Partial<Race> = { name: '', distance: 'TEN_KM' };
   selectedRace: Race | null = null;
+  public stompClient: any;
 
-  constructor(private raceService: RaceService) {}
+  constructor(private raceService: RaceService, private websocketService: WebSocketService) {}
 
   ngOnInit(): void {
     this.raceService.getRaces().subscribe((data) => {

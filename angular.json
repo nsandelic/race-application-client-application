@@ -27,7 +27,8 @@
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
-              "zone.js"
+              "zone.js",
+              "src/window-global-fix.ts"
             ],
             "tsConfig": "tsconfig.app.json",
             "assets": [
@@ -39,7 +40,7 @@
             "styles": [
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": ["node_modules/global/window.js"],
             "outputMode":"static",
             "prerender": false,
             "ssr": false

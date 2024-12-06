@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ApplicationService } from '../../../services/application/application.service';
+import { WebSocketService } from '../../../services/websocket/websocket.service';
 
 @Component({
   selector: 'app-apply-race',
@@ -14,8 +15,11 @@ export class ApplyRaceComponent {
   constructor(
     private applicationService: ApplicationService,
     private route: ActivatedRoute,
-    private router: Router
-  ) {
+    private router: Router,
+    private websocketService: WebSocketService
+  ){}
+
+  ngOnInit(): void {
     this.route.params.subscribe((params) => {
       this.application.raceId = params['raceId'];
     });
@@ -23,8 +27,8 @@ export class ApplyRaceComponent {
 
   apply(): void {
     this.applicationService.addApplication(this.application).subscribe(() => {
-      alert('Application submitted successfully!');
       this.router.navigate(['/applications']);
     });
   }
+  
 }

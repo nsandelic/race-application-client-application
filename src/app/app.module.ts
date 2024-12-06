@@ -24,7 +24,6 @@ import { provideHttpClient, withFetch } from '@angular/common/http';
     FormsModule
   ],
   providers: [
-    provideClientHydration(withEventReplay()),
     provideHttpClient(withFetch())
   ],
   bootstrap: [AppComponent]
